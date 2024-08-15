@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+
+// Uvozimo osnovna orodja temiranja Angular Material
+@include mat-core();
+
+// Definiranje temne palete barv
+$primary-color: mat-palette($mat-indigo);
+$accent-color: mat-palette($mat-pink, A200, A100, A400);
+$warn-color: mat-palette($mat-red);
+$background-color: mat-palette($mat-grey, 900);
+
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $primary-color,
+      accent: $accent-color,
+      warn: $warn-color,
+      background: $background-color,
+    ),
+  )
+);
+
+// Uporaba teme na Angular Material komponentah
+@include angular-material-theme($dark-theme);

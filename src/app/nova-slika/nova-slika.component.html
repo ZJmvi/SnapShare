@@ -1,0 +1,63 @@
+<h1>Dodaj novo sliko</h1><br>
+<table class="newTable">
+    <tr>
+        <td>
+            <mat-form-field [style.width.px]=400>
+                <mat-label>Naslov</mat-label>
+                <input matInput [(ngModel)]="Naslov">
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <mat-form-field [style.width.px]=400>
+                <mat-label>Avtor</mat-label>
+                <input matInput [(ngModel)]="Lastnik">
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <mat-form-field [style.width.px]=400>
+                <mat-label>Opis</mat-label>
+                <input matInput [(ngModel)]="Opis">
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <mat-form-field [style.width.px]=400>
+                <mat-label>Komentar</mat-label>
+                <input matInput [(ngModel)]="Komentar">
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="upload-container">
+
+
+                <button mat-raised-button color="primary" (click)="fileInput.click()">Izberi sliko</button>
+                <input type="file" id="file" (change)="onFileSelected($event)" #fileInput style="display: none;" />
+
+                <button mat-raised-button color="primary" (click)="onUpload()" [disabled]="isLoading">Naloži sliko</button>
+
+                
+                <div *ngIf="fileName">Izbrana datoteka: {{ fileName }}</div>
+                
+
+                <div *ngIf="isLoading">Nalagam...</div>
+
+                <div *ngIf="imageUrl">
+                    <p>Slika uspešno naložena:</p>
+                    <a [href]="imageUrl" target="_blank">{{ imageUrl }}</a>
+                    <br>
+                    <img [src]="imageUrl" alt="Uploaded Image" class="uploaded-image" />
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
+
+<button type="submit" mat-raised-button color="primary" (click)="NewItem()" class="button">Dodaj sliko</button>

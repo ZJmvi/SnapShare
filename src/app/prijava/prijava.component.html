@@ -1,0 +1,22 @@
+<h1>Prijava</h1><br>
+<table class="newTable">
+    <tr>
+        <td>
+            <mat-form-field [style.width.px]=400>
+                <label>Email: </label>
+                <input matInput placeholder="user@gmail.com" [(ngModel)]="email" type="email" required>
+            </mat-form-field>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <mat-form-field appearance="fill" [style.width.px]=400>
+                <label>Geslo: </label>
+                <input matInput [(ngModel)]="geslo" name="geslo" type="password" required>
+            </mat-form-field>
+        </td>
+    </tr>
+</table>
+<br>
+
+<button type="submit" mat-raised-button color="primary" (click)="login()" class="button">PRIJAVA</button>
